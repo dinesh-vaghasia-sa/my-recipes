@@ -9,6 +9,11 @@ export class AppComponent {
   title = 'my-recipes';
   // myRecipe = true;
   recipes = [];
+ public recipeName = '';
+ public recipeURL = '';
+ public recipeDescription = '';
+ public recipeVag = '';
+ public recipeChef = '';
 constructor() {
   this.recipes = [
       {
@@ -45,7 +50,7 @@ constructor() {
       },
       {
         name: 'Italian Pasta',
-        chef: 'JM',
+        chef: 'Dinesh',
         image: 'https://mariettasquaremarket.com/msm/wp-content/uploads/2018/12/Pita-Mediterranean-5.jpg',
         type: 'vage',
         // tslint:disable-next-line:max-line-length
@@ -53,12 +58,20 @@ constructor() {
       },
       {
         name: 'Chicken Maggie',
-        chef: 'Nisha Madhulika',
+        chef: 'Twara',
         image: 'http://eatbook.sg/wp-content/uploads/2018/06/Century-Square-Food-Two-Hana.jpg',
         type: 'nv',
         // tslint:disable-next-line:max-line-length
         discription: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto magni maxime ipsa minima? Minima veniam repudiandae nesciunt quas eius provident quasi dicta ipsa, dignissimos inventore tenetur ad odit excepturi nam!'
       },
     ];
+  }
+
+  addRecipe(f) {
+    // console.log(this.recipeName, this.recipeURL, this.recipeDescription, this.recipeVag, this.recipeChef);
+    this.recipes.push({
+      name: this.recipeName, image: this.recipeURL, discription: this.recipeDescription, type: this.recipeVag, chef: this.recipeChef
+    });
+    f.reset();
   }
 }

@@ -1,27 +1,27 @@
 <div class="my-recipe-screen mt-3 mb-3">
     <!-- <h3 *ngIf="myRecipe">My New Recipe Title</h3> -->
     <div class="container">
-        <h2>My Recipes</h2>
+        <h2>Add Recipe</h2>
         <div class="my-recipe-form">
-            <form>
+            <!-- <form> -->
                 <div class="form-group">
                     <label for="exampleInputEmail1">Recipe Name:</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter Recipes Name">
+                    <input type="text" class="form-control" placeholder="Enter Recipes Name" [(ngModel)]="recipeName">
                     <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                         else.</small> -->
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Recipe Image URL</label>
-                    <input type="text" class="form-control" placeholder="Emter Image URL">
+                    <input type="text" class="form-control" placeholder="Emter Image URL" [(ngModel)]="recipeURL">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Recipes Description</label>
-                    <input type="text" class="form-control" placeholder="Emter Image URL">
+                    <input type="text" class="form-control" placeholder="Emter Description"  [(ngModel)]="recipeDescription">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Recipes Type (veg/non.veg)</label>
-                    <div class="form-check">
+                    <label>Recipes Type (veg/non.veg)</label>
+                    <input type="text" class="form-control" placeholder="Emter Veg / Non Veg" [(ngModel)]="recipeVag">
+                    <!-- <div class="form-check">
                         <div class="radio">
                             <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
                                 value="option2">
@@ -36,22 +36,22 @@
                                 Non Veg
                             </label>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Recipes Chef / Author</label>
-                    <input type="text" class="form-control" placeholder="Emter Chef / Author">
+                    <input type="text" class="form-control" placeholder="Emter Chef / Author" [(ngModel)]="recipeChef">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+                <button (click)="addRecipe(f)" type="submit" class="btn btn-primary">Add Recipe</button>
+            <!-- </form> -->
         </div>
         <div class="my-recipe-listing mt-5">
-            <h2>All Recipes</h2>
+            <h2>My Recipes</h2>
             <div class="list-of-card">
                 <div class="row">
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 mb-4" *ngFor="let recipe of recipes">
                         <div class="card">
-                            <img class="card-img-top" src="{{recipe.image}}" alt="Card image cap">
+                            <img class="card-img-top" src="{{recipe.image}}" alt="Card image cap" style="width: 100%;height: 200px;">
                             <div class="card-body">
                                 <h5 class="card-title">{{recipe.name}} <span class="non-vage">{{recipe.name}}</span></h5>
                                 <p class="card-text">{{recipe.discription}}</p>
