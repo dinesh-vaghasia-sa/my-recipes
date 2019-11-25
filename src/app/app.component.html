@@ -3,66 +3,12 @@
     <div class="container">
         <h2>Add Recipe</h2>
         <div class="my-recipe-form">
-            <!-- <form> -->
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Recipe Name:</label>
-                    <input type="text" class="form-control" placeholder="Enter Recipes Name" [(ngModel)]="recipeName">
-                    <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                        else.</small> -->
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Recipe Image URL</label>
-                    <input type="text" class="form-control" placeholder="Emter Image URL" [(ngModel)]="recipeURL">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Recipes Description</label>
-                    <input type="text" class="form-control" placeholder="Emter Description"  [(ngModel)]="recipeDescription">
-                </div>
-                <div class="form-group">
-                    <label>Recipes Type (veg/non.veg)</label>
-                    <input type="text" class="form-control" placeholder="Emter Veg / Non Veg" [(ngModel)]="recipeVag">
-                    <!-- <div class="form-check">
-                        <div class="radio">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
-                                value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                                Veg
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                                value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios1">
-                                Non Veg
-                            </label>
-                        </div>
-                    </div> -->
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Recipes Chef / Author</label>
-                    <input type="text" class="form-control" placeholder="Emter Chef / Author" [(ngModel)]="recipeChef">
-                </div>
-                <button (click)="addRecipe(f)" type="submit" class="btn btn-primary">Add Recipe</button>
-            <!-- </form> -->
+            <app-add-recipe (addNewRecipeToEmit)="getdata($event)"></app-add-recipe>
         </div>
         <div class="my-recipe-listing mt-5">
             <h2>My Recipes</h2>
             <div class="list-of-card">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12 mb-4" *ngFor="let recipe of recipes">
-                        <div class="card">
-                            <img class="card-img-top" src="{{recipe.image}}" alt="Card image cap" style="width: 100%;height: 200px;">
-                            <div class="card-body">
-                                <h5 class="card-title">{{recipe.name}} <span class="non-vage">{{recipe.name}}</span></h5>
-                                <p class="card-text">{{recipe.discription}}</p>
-                                <small class="author-name">-{{recipe.chef}}</small>
-                                <div class="view-details">
-                                    <a href="#" class="btn btn-primary">View Detail</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <app-recipe-list-cell [recipesList]="recipes"></app-recipe-list-cell>
             </div>
         </div>
     </div>
